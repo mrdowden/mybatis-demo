@@ -1,0 +1,43 @@
+<div class="mobile-links">
+  <a href="#/store" class="btn"><i class="fa fa-glass"></i>Continue Shopping</a>
+</div>
+
+<h1>Bourbon Store Shopping Cart</h1>
+
+<div class="cart">
+  <a href="#/store" class="btn"><i class="fa fa-glass"></i>Continue Shopping</a>
+</div>
+
+<form name="cartForm">
+  <div class="items list">
+    <div class="bottle" ng-repeat="bottle in shoppingCart.items">
+      <img ng-src="../../img/{{bottle.shortname}}.png" alt="{{bottle.name}}">
+      <div>
+        <h2>{{bottle.name}}</h2>
+        <p>Price: $ {{bottle.price}}</p>
+        <label ng-class="{'has-error': cartForm.qty{{bottle.id}}.$invalid && cartForm.qty{{bottle.id}}.$invalid}">Quantity:</label>
+          <input type="number" 
+                  step="1"
+                  name="qty{{bottle.id}}"
+                  ng-change="updateQty(bottle)"
+                  ng-model="bottle.qty"
+                  ng-pattern="/^\d*$/">
+        <p class="text-error" ng-show="cartForm.qty{{bottle.id}}.$invalid && cartForm.qty{{bottle.id}}.$dirty">Quantity must be a whole number greater to or equal to 0</p>
+        <button ng-click="remove(bottle.id)" class="description"><i class="fa fa-close"></i>Remove from cart</button>
+      </div>
+      <div class="group">
+        <strong>Subtotal:</strong> {{bottle.qty * bottle.price | currency}}
+      </div>
+    </div>
+  </div>
+
+<div class="checkout">
+
+  <p><strong>Total: </strong>{{shoppingCart.total | currency}}</p>
+  <a class="button" href="#/checkout">Checkout</a>
+</div>
+
+</form>
+  
+
+ 

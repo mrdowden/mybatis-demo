@@ -1,0 +1,38 @@
+<div class="mobile-links">
+  <a href="#/cart" class="btn"><i class="fa fa-shopping-cart"></i>View Shopping Cart</a>
+</div>
+
+<h1>Bourbon Store</h1>
+<div class="cart">
+  <a href="#/cart" class="btn"><i class="fa fa-shopping-cart"></i>View Shopping Cart</a>
+</div>
+<div class="items">
+  <div class="bottle" ng-repeat="bottle in bottles">
+    <img ng-src="../../img/{{bottle.shortname}}.png" alt="{{bottle.name}}">
+    <div class="group">
+      <h2>{{bottle.name}}</h2>
+      <button ng-click="open('md', bottle)" class="description"><i class="fa fa-info-circle"></i>Description</button>
+      <p>Price: {{bottle.price | currency}}</p>
+    </div>
+    <button class="btn" ng-click="add(bottle.id)">Add to Cart</button>
+  </div>
+  
+</div>
+
+<script type="text/ng-template" id="description">
+  <div class="modal-header">
+    <h2>{{bottle.name}}</h2>
+  </div>
+  <div class="modal-body group">
+    <img ng-src="../../img/{{bottle.shortname}}.png" alt="{{bottle.name}}">
+    <div>
+      <h3>Description</h3>
+      <p>{{bottle.description}}</p>
+      <h3>Price</h3>
+      <p>{{bottle.price | currency}}</p>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button classs="btn" ng-click="close()">Close</button>
+  </div>
+</script>

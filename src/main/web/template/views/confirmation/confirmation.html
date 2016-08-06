@@ -1,0 +1,69 @@
+<h1>Bourbon Store Shopping Confirmation</h1>
+<h2>Order Information</h2>
+<div class="row">
+  <div class="col-sm-6 ship-info">
+    <div class="row">
+      <div class="col-sm-3">Order Number</div>
+      <div class="col-sm-6">{{order.orderNumber}}</div>
+    </div>
+  </div>
+  <div class="col-sm-6 ship-info">
+    <div class="row">
+      <div class="col-sm-3">Name</div>
+      <div class="col-sm-6">{{order.address.name}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">Address</div>
+      <div class="col-sm-6">{{order.address.address}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">City</div>
+      <div class="col-sm-6">{{order.address.city}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">State</div>
+      <div class="col-sm-6">{{order.address.state}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">Zip</div>
+      <div class="col-sm-6">{{order.address.zip}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">Phone</div>
+      <div class="col-sm-6">{{order.address.phone}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">Email</div>
+      <div class="col-sm-6">{{order.address.email}}</div>
+    </div>
+  </div>
+</div>
+
+
+<h2>Items Ordered</h2>
+<table class="table table-stripped table-hover">
+  <thead>
+    <tr>
+      <th colspan="2">Name</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="bottle in order.items">
+      <td> <img ng-src="../../img/{{bottle.shortname}}.png" alt="{{bottle.name}}"></td>
+      <td>{{bottle.name}}</td>
+      <td>{{bottle.qty}}</td>
+      <td>{{bottle.price | currency}}</td>
+      <td>{{bottle.qty * bottle.price | currency}}</td>
+    </tr> 
+  </tbody>
+  <tfooter>
+    <tr>
+      <td colspan="3"></td>
+      <th>Total</th>
+      <td>{{order.total | currency}}</td>
+    </tr>
+  </tfooter>
+</table>

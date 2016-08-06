@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+}
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+body {
+  background-image: url('../img/bourbon.svg');
+  background-repeat: no-repeat;
+  background-width: 333px;
+  background-position: bottom left;
+}
+h1 {
+  border-bottom: solid 1px #e89747;
+}
+a:link,
+a:visited {
+  color: #e89747;
+}
+h1,
+h2 {
+  font-family: 'Forum', cursive;
+}
+i {
+  margin-right: 3px;
+}
+.has-error {
+  color: red;
+}
+.has-error input {
+  border-color: red;
+}
+.text-error {
+  color: red;
+}
+.cart {
+  text-align: right;
+}
+button.btn,
+a.button {
+  background: #eeb174;
+  color: #424242;
+  font-weight: bold;
+}
+button.btn:hover,
+a.button:hover,
+button.btn:focus,
+a.button:focus,
+button.btn:active,
+a.button:active {
+  background: #f3caa2;
+}
+a.button {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+a.button:hover,
+a.button:focus,
+a.button:active {
+  text-decoration: none;
+}
+button.description {
+  border: none;
+  background: none;
+  display: block;
+  text-align: left;
+  padding-left: 0;
+  color: #ae6116;
+}
+button.description:hover,
+button.description:focus,
+button.description:active {
+  text-decoration: underline;
+  border: none;
+}
+button.shopping {
+  border: none;
+  display: inline;
+  color: #e89747;
+  background: none;
+}
+.items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.bottle {
+  position: relative;
+  margin-bottom: 20px;
+  width: 33%;
+  border: solid 1px #dbdbdb;
+  border-radius: 4px;
+  padding: 5px 5px 30px;
+}
+.bottle img {
+  width: 32%;
+  float: left;
+}
+.bottle div {
+  width: 65%;
+  float: right;
+}
+.bottle h2 {
+  font-size: 1.25em;
+  margin-top: 0;
+  border-bottom: solid 1px #e89747;
+  color: #5b5b5b;
+}
+.bottle button.btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 5px;
+}
+img {
+  border: solid 1px #f3caa2;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: white;
+}
+img.img-thumbnail {
+  max-width: 200px;
+}
+.items.list .bottle {
+  padding-bottom: 5px;
+  width: 100%;
+}
+.items.list .bottle img {
+  width: 15%;
+}
+.items.list .bottle div {
+  width: 42%;
+  float: left;
+  margin-left: 20px;
+}
+.items.list .bottle div:last-child {
+  width: 42%;
+  padding: 20px 10px 5px 0;
+  position: absolute;
+  text-align: right;
+  bottom: 0;
+  right: 0;
+}
+.items.list .bottle .description {
+  margin-top: 10px;
+}
+label {
+  font-weight: normal;
+}
+.modal-header {
+  background: #eeb174;
+  border-radius: 4px 4px 0 0 ;
+  font-weight: bold;
+}
+.modal-header h2 {
+  margin: 0;
+}
+.modal-body div {
+  float: right;
+  width: 75%;
+}
+.modal-body img {
+  width: 25%;
+  float: left;
+}
+.mobile-links {
+  display: none;
+  text-align: right;
+}
+.checkout {
+  text-align: right;
+  margin-bottom: 20px;
+}
+.form {
+  width: 50%;
+  margin: 20px auto;
+}
+.form .row {
+  margin-bottom: 10px;
+}
+table img {
+  width: 50px;
+}
+.ship-info div.col-sm-3 {
+  font-weight: bold;
+}
+@media only screen and (max-width: 480px) {
+  body {
+    background-width: 50%;
+  }
+  .bottle {
+    width: 100%;
+  }
+  .modal-body {
+    text-align: center;
+  }
+  .modal-body img {
+    width: 75%;
+    float: none;
+  }
+  .modal-body div {
+    float: none;
+    text-align: justify;
+    width: 100%;
+  }
+  .cart {
+    display: none;
+  }
+  .mobile-links,
+  button.shoppings {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: right;
+    background: #eeb174;
+    z-index: 1;
+  }
+  .mobile-links a:link,
+  button.shoppings a:link,
+  .mobile-links a:visited,
+  button.shoppings a:visited {
+    color: #5b5b5b;
+  }
+  h1 {
+    margin-top: 40px;
+  }
+  .items.list .bottle {
+    width: 100%;
+  }
+  .items.list .bottle img {
+    width: 20%;
+  }
+  .items.list .bottle div {
+    width: 70%;
+    float: none;
+    margin-left: 30%;
+  }
+  .items.list .bottle div:last-child {
+    width: 100%;
+    padding: 5px 0 0;
+    margin: 10px 0 0;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    border-top: solid 1px #dbdbdb;
+  }
+  .form {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 980px) {
+  .bottle {
+    width: 24%;
+  }
+}
+/*768*/

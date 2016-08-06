@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>The Bourbon Store</title>
+
+    <!-- Javascript -->
+    <script src="lib/boilerplate/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+    <script src="https://code.angularjs.org/1.4.5/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.0/ui-bootstrap-tpls.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="lib/boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Forum' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">     
+    
+
+  </head>
+
+  <body ng-app="bourbon">
+  
+
+    <div ng-view class="container-fluid"></div>
+
+
+    <!-- More Javascript -->
+    <script src="app.js"></script>
+    <script src="views/store/store.js"></script>
+    <script src="views/cart/cart.js"></script>
+    <script src="views/checkout/checkout.js"></script>
+    <script src="views/confirmation/confirmation.js"></script>
+  </body>
+  
+  
+
+</html>
