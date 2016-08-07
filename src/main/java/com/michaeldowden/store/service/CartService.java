@@ -1,12 +1,12 @@
-package com.michaeldowden.jwf.service;
+package com.michaeldowden.store.service;
 
 import static spark.Spark.halt;
 import spark.Request;
 
-import com.michaeldowden.jwf.model.OrderItem;
-import com.michaeldowden.jwf.model.ShoppingCart;
-import com.michaeldowden.jwf.utils.CartUtils;
-import com.michaeldowden.jwf.utils.ItemNotFoundException;
+import com.michaeldowden.store.model.OrderItem;
+import com.michaeldowden.store.model.ShoppingCart;
+import com.michaeldowden.store.utils.CartUtils;
+import com.michaeldowden.store.utils.ItemNotFoundException;
 
 public class CartService {
 	private static final String SHOPPING_CART = "SHOPPING_CART";

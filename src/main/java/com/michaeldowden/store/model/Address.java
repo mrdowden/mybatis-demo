@@ -1,4 +1,4 @@
-package com.michaeldowden.jwf.model;
+package com.michaeldowden.store.model;
 
 public class Address {
 	private String name;

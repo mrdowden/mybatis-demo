@@ -1,4 +1,4 @@
-package com.michaeldowden.jwf.model;
+package com.michaeldowden.store.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

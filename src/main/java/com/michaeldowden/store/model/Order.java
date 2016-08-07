@@ -1,4 +1,4 @@
-package com.michaeldowden.jwf.model;
+package com.michaeldowden.store.model;
 
 import static java.util.Collections.emptyList;
 import static java.util.Collections.unmodifiableList;

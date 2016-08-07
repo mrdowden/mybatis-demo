@@ -1,6 +1,7 @@
-package com.michaeldowden.jwf.model;
+package com.michaeldowden.store.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class Bourbon {
 	private Integer id;
@@ -8,6 +9,8 @@ public class Bourbon {
 	private String description;
 	private BigDecimal price;
 	private String shortname;
+	private LocalDateTime lastUpdated;
+	private String whoUpdated;
 
 	public Integer getId() {
 		return id;
@@ -47,6 +50,22 @@ public class Bourbon {
 
 	public void setShortname(String shortname) {
 		this.shortname = shortname;
+	}
+
+	public LocalDateTime getLastUpdated() {
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(LocalDateTime lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
+
+	public String getWhoUpdated() {
+		return whoUpdated;
+	}
+
+	public void setWhoUpdated(String whoUpdated) {
+		this.whoUpdated = whoUpdated;
 	}
 
 }

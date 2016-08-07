@@ -1,11 +1,11 @@
-package com.michaeldowden.jwf.utils;
+package com.michaeldowden.store.utils;
 
 import static java.math.BigDecimal.valueOf;
 
 import java.math.BigDecimal;
 
-import com.michaeldowden.jwf.model.OrderItem;
-import com.michaeldowden.jwf.model.ShoppingCart;
+import com.michaeldowden.store.model.OrderItem;
+import com.michaeldowden.store.model.ShoppingCart;
 
 public final class CartUtils {
 	private CartUtils() {

@@ -1,13 +1,13 @@
-package com.michaeldowden.jwf.web;
+package com.michaeldowden.store.web;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.put;
 
 import com.google.gson.Gson;
-import com.michaeldowden.jwf.model.Address;
-import com.michaeldowden.jwf.service.CartService;
-import com.michaeldowden.jwf.service.OrderService;
+import com.michaeldowden.store.model.Address;
+import com.michaeldowden.store.service.CartService;
+import com.michaeldowden.store.service.OrderService;
 
 public class OrderController {
 	private final Gson gson = new Gson();

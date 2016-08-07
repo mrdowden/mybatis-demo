@@ -1,4 +1,4 @@
-package com.michaeldowden.jwf.web;
+package com.michaeldowden.store.web;
 
 import static spark.Spark.delete;
 import static spark.Spark.get;
@@ -6,9 +6,9 @@ import static spark.Spark.post;
 import static spark.Spark.put;
 
 import com.google.gson.Gson;
-import com.michaeldowden.jwf.model.OrderItem;
-import com.michaeldowden.jwf.service.CartService;
-import com.michaeldowden.jwf.service.ItemDao;
+import com.michaeldowden.store.model.OrderItem;
+import com.michaeldowden.store.service.CartService;
+import com.michaeldowden.store.service.ItemDao;
 
 public class CartController {
 	private final Gson gson = new Gson();

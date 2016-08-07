@@ -1,4 +1,4 @@
-package com.michaeldowden.jwf.utils;
+package com.michaeldowden.store.utils;
 
 public class ItemNotFoundException extends Exception {
 	private static final long serialVersionUID = 6094154277888661019L;

@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
 
-mainClassName = "com.michaeldowden.jwf.BourbonStore"
+mainClassName = "com.michaeldowden.store.BourbonStore"
 
 jar {
     baseName = 'pluralsight-mybatis'
@@ -24,4 +24,9 @@ dependencies {
     compile "org.apache.derby:derby:10.11.1.1"
     compile "org.mybatis:mybatis:3.3.1"
     compile "com.google.code.gson:gson:2.6.2"
+}
+
+task exec(type:JavaExec) {
+	main = mainClassName
+	classpath = sourceSets.main.runtimeClasspath
 }

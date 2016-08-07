@@ -1,11 +1,11 @@
-package com.michaeldowden.jwf.web;
+package com.michaeldowden.store.web;
 
 import static spark.Spark.get;
 import static spark.Spark.halt;
 
 import com.google.gson.Gson;
-import com.michaeldowden.jwf.model.Bourbon;
-import com.michaeldowden.jwf.service.ItemDao;
+import com.michaeldowden.store.model.Bourbon;
+import com.michaeldowden.store.service.ItemDao;
 
 public class ItemController {
 

@@ -1,10 +1,10 @@
-package com.michaeldowden.jwf.utils;
+package com.michaeldowden.store.utils;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.michaeldowden.jwf.model.Order;
-import com.michaeldowden.jwf.model.ShoppingCart;
+import com.michaeldowden.store.model.Order;
+import com.michaeldowden.store.model.ShoppingCart;
 
 public final class OrderUtils {
 	private static final Map<Integer, Order> ORDER_HISTORY = new HashMap<Integer, Order>();

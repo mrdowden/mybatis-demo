@@ -1,11 +1,12 @@
-package com.michaeldowden.jwf;
+package com.michaeldowden.store;
 
 import static spark.Spark.port;
 import static spark.Spark.staticFileLocation;
 
-import com.michaeldowden.jwf.web.CartController;
-import com.michaeldowden.jwf.web.ItemController;
-import com.michaeldowden.jwf.web.OrderController;
+import com.michaeldowden.store.web.AdminController;
+import com.michaeldowden.store.web.CartController;
+import com.michaeldowden.store.web.ItemController;
+import com.michaeldowden.store.web.OrderController;
 
 public class BourbonStore {
 
@@ -16,6 +17,7 @@ public class BourbonStore {
 		new ItemController().initialize();
 		new CartController().initialize();
 		new OrderController().initialize();
+		new AdminController().initialize();
 	}
 
 }

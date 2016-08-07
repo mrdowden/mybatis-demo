@@ -1,4 +1,4 @@
-package com.michaeldowden.jwf.service;
+package com.michaeldowden.store.service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.michaeldowden.jwf.model.Bourbon;
+import com.michaeldowden.store.model.Bourbon;
 
 public class ItemDao {
 	private static final ItemDao SINGLETON = new ItemDao();
@@ -57,6 +57,17 @@ public class ItemDao {
 		try (SqlSession session = sqlSessionFactory.openSession()) {
 			ItemMapper mapper = session.getMapper(ItemMapper.class);
 			return mapper.findBourbonByShortname(shortname);
+		}
+	}
+
+	public void storeBourbon(final Bourbon bourbon) {
+		try (SqlSession session = sqlSessionFactory.openSession()) {
+			ItemMapper mapper = session.getMapper(ItemMapper.class);
+			if (bourbon.getId() == null) {
+				mapper.insertBourbon(bourbon);
+			} else {
+				mapper.updateBourbon(bourbon);
+			}
 		}
 	}
 

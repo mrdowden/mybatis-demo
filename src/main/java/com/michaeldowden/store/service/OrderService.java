@@ -1,13 +1,13 @@
-package com.michaeldowden.jwf.service;
+package com.michaeldowden.store.service;
 
-import static com.michaeldowden.jwf.utils.OrderUtils.buildOrder;
-import static com.michaeldowden.jwf.utils.OrderUtils.findOrderInHistory;
+import static com.michaeldowden.store.utils.OrderUtils.buildOrder;
+import static com.michaeldowden.store.utils.OrderUtils.findOrderInHistory;
 import static spark.Spark.halt;
 import spark.Request;
 
-import com.michaeldowden.jwf.model.Address;
-import com.michaeldowden.jwf.model.Order;
-import com.michaeldowden.jwf.model.ShoppingCart;
+import com.michaeldowden.store.model.Address;
+import com.michaeldowden.store.model.Order;
+import com.michaeldowden.store.model.ShoppingCart;
 
 public class OrderService {
 	private static final String ORDER = "ORDER";
