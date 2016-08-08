@@ -61,7 +61,7 @@ public class ItemDao {
 	}
 
 	public void storeBourbon(final Bourbon bourbon) {
-		try (SqlSession session = sqlSessionFactory.openSession()) {
+		try (SqlSession session = sqlSessionFactory.openSession(true)) {
 			ItemMapper mapper = session.getMapper(ItemMapper.class);
 			if (bourbon.getId() == null) {
 				mapper.insertBourbon(bourbon);
