@@ -8,8 +8,8 @@ angular.module('bourbon', [
   'bourbon.store',
   'bourbon.cart',
   'bourbon.checkout',
-  'bourbon.confirmation'
-
+  'bourbon.confirmation',
+  'bourbon.admin'
 ])
 
 .config(['$routeProvider', function ($routeProvider) {
