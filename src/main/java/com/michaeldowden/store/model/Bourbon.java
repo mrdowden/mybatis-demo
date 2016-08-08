@@ -1,9 +1,14 @@
 package com.michaeldowden.store.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class Bourbon {
+import com.michaeldowden.pluralsight.mybatis.LastUpdatedMetadata;
+
+public class Bourbon implements LastUpdatedMetadata, Serializable {
+	private static final long serialVersionUID = -7604498355924738924L;
+
 	private Integer id;
 	private String name;
 	private String description;

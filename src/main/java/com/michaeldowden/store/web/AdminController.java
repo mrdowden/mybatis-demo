@@ -33,9 +33,6 @@ public class AdminController {
 		put("/svc/admin/items", "application/json", (req, res) -> {
 			Bourbon bourbon = gson.fromJson(req.body(), Bourbon.class);
 			
-			bourbon.setLastUpdated( LocalDateTime.now() );
-			bourbon.setWhoUpdated( (String)SecurityUtils.getSubject().getPrincipal() );
-			
 			itemDao.storeBourbon(bourbon);
 			return Boolean.TRUE;
 		});

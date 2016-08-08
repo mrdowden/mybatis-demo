@@ -10,9 +10,9 @@
 			handler="com.michaeldowden.store.utils.LocalDateTimeTypeHandler" />
 	</typeHandlers>
 
-	<!-- <plugins>
-		<plugin class="com.mrdowden.pluralsight.mybatis" />
-	</plugins> -->
+	<plugins>
+		<plugin interceptor="com.michaeldowden.pluralsight.mybatis.LastUpdatedPlugin" />
+	</plugins>
 
 	<environments default="development">
 		<environment id="development">
