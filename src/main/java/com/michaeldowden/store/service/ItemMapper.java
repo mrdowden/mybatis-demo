@@ -41,15 +41,15 @@ public interface ItemMapper {
 	@Select("SELECT * FROM store.items WHERE shortname = #{shortname}")
 	public Bourbon findBourbonByShortname(String shortname);
 
-	@Insert("INSERT INTO items VALUES ("
-			+ "#{bourbon.id}, #{bourbon.name}, #{bourbon.description}, #{bourbon.price}, "
-			+ "#{bourbon.shortname}, #{bourbon.lastUpdated}, #{bourbon.whoUpdated})")
+	@Insert("INSERT INTO items (name, description, price, shortname, lastUpdated, whoUpdated) "
+			+ "VALUES ( #{name}, #{description}, #{price}, #{shortname}, "
+			+ "#{lastUpdated,typeHandler=com.michaeldowden.store.utils.LocalDateTimeTypeHandler}, "
+			+ "#{whoUpdated} )")
 	public void insertBourbon(Bourbon bourbon);
 	
-	@Update("UPDATE items SET name = #{bourbon.name}, description = #{bourbon.description}, "
-			+ "price = #{bourbon.price}, shortname = #{bourbon.shortname}, "
-			+ "lastUpdated = #{bourbon.lastUpdated}, whoUpdated = #{bourbon.whoUpdated}"
-			+ "WHERE id = #{bourbon.id}")
+	@Update("UPDATE items SET name = #{name}, description = #{description}, price = #{price}, "
+			+ "shortname = #{shortname}, lastUpdated = #{lastUpdated,typeHandler=com.michaeldowden.store.utils.LocalDateTimeTypeHandler}, whoUpdated = #{whoUpdated}"
+			+ "WHERE id = #{id}")
 	public void updateBourbon(Bourbon bourbon);
 	
 }

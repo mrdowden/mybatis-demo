@@ -1,7 +1,10 @@
 package com.michaeldowden.store.web;
 
 import static spark.Spark.get;
-import static spark.Spark.post;
+import static spark.Spark.halt;
+import static spark.Spark.put;
+
+import java.time.LocalDateTime;
 
 import com.google.gson.Gson;
 import com.michaeldowden.store.model.Bourbon;
@@ -17,8 +20,21 @@ public class AdminController {
 			return itemDao.listItems();
 		}, gson::toJson);
 
-		post("/svc/admin/item", "application/json", (req, res) -> {
-			itemDao.storeBourbon(gson.fromJson(req.body(), Bourbon.class));
+		get("/svc/admin/item/:shortname", "application/json", (req, res) -> {
+			Bourbon item = itemDao.findBourbonByShortname(req.params(":shortname"));
+			if (item == null) {
+				halt(404);
+			}
+			return item;
+		}, gson::toJson);
+
+		put("/svc/admin/items", "application/json", (req, res) -> {
+			Bourbon bourbon = gson.fromJson(req.body(), Bourbon.class);
+			
+			bourbon.setLastUpdated( LocalDateTime.now() );
+			bourbon.setWhoUpdated( "mrdowden" );
+			
+			itemDao.storeBourbon(bourbon);
 			return Boolean.TRUE;
 		});
 	}
