@@ -9,17 +9,21 @@ angular.module('bourbon.admin', ['ngRoute', 'ui.bootstrap'])
   });
 }])
 
-.controller('adminCtrl', function ($scope, $http, $log, $uibModal) {
+.controller('adminCtrl', function ($scope, $http, $log, $uibModal, $filter) {
 
   $http.get('/svc/admin/items').success(function (data){
 
     console.log(data);
+    $scope.bottles = $filter('orderBy')(data, 'id', true);
 
-    $scope.bottles = data;
-    $scope.totalItems = data.length;
-    console.log($scope.bottles);
+    $scope.listSetUp = function () {
+      $scope.currentPage = 1;
+      $scope.maxSize = 5;
+      $scope.totalItems = data.length;
+      $scope.bottleList = angular.copy($scope.bottles).slice(0, 10);
+    }
 
-    $scope.bottleList = angular.copy($scope.bottles).slice(0, 10);
+    $scope.listSetUp();
 
   });
 
@@ -33,8 +37,7 @@ angular.module('bourbon.admin', ['ngRoute', 'ui.bootstrap'])
     $scope.bottleList = items.slice(firstItem, lastItem);
   };
 
-  $scope.currentPage = 1;
-  $scope.maxSize = 5;
+
 
   // modal
 
@@ -53,8 +56,11 @@ angular.module('bourbon.admin', ['ngRoute', 'ui.bootstrap'])
    });
 
    modalInstance.result.then(function (item) {
-     $http.post('/svc/admin/items', item).success(function (data) {
-       console.log('returned data = : ' + data);
+     $http.put('/svc/admin/items', item).success(function (data) {
+       $http.get('/svc/admin/items').success(function (data) {
+         $scope.bottles = $filter('orderBy')(data, 'id', true);
+         $scope.listSetUp();
+       })
      });
 
    });
