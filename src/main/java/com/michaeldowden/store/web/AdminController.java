@@ -6,6 +6,8 @@ import static spark.Spark.put;
 
 import java.time.LocalDateTime;
 
+import org.apache.shiro.SecurityUtils;
+
 import com.google.gson.Gson;
 import com.michaeldowden.store.model.Bourbon;
 import com.michaeldowden.store.service.ItemDao;
@@ -32,7 +34,7 @@ public class AdminController {
 			Bourbon bourbon = gson.fromJson(req.body(), Bourbon.class);
 			
 			bourbon.setLastUpdated( LocalDateTime.now() );
-			bourbon.setWhoUpdated( "mrdowden" );
+			bourbon.setWhoUpdated( (String)SecurityUtils.getSubject().getPrincipal() );
 			
 			itemDao.storeBourbon(bourbon);
 			return Boolean.TRUE;
