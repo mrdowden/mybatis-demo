@@ -1,3 +1,4 @@
+@brand-primary = @orange;
 * {
   box-sizing: border-box;
 }
@@ -13,11 +14,11 @@ body {
   background-position: bottom left;
 }
 h1 {
-  border-bottom: solid 1px #e89747;
+  border-bottom: solid 1px #E89747;
 }
 a:link,
 a:visited {
-  color: #e89747;
+  color: #E89747;
 }
 h1,
 h2 {
@@ -25,6 +26,16 @@ h2 {
 }
 i {
   margin-right: 3px;
+}
+button i {
+  margin: 0;
+}
+textarea.form-control {
+  height: 150px;
+}
+.form-control,
+.input-group {
+  margin-bottom: 10px;
 }
 .has-error {
   color: red;
@@ -52,6 +63,12 @@ button.btn:active,
 a.button:active {
   background: #f3caa2;
 }
+button.btn-default {
+  background: #E89747;
+}
+button.btn-cancel {
+  background: #dbdbdb;
+}
 a.button {
   padding: 5px 10px;
   border-radius: 5px;
@@ -78,7 +95,7 @@ button.description:active {
 button.shopping {
   border: none;
   display: inline;
-  color: #e89747;
+  color: #E89747;
   background: none;
 }
 .items {
@@ -107,8 +124,8 @@ button.shopping {
 .bottle h2 {
   font-size: 1.25em;
   margin-top: 0;
-  border-bottom: solid 1px #e89747;
-  color: #5b5b5b;
+  border-bottom: solid 1px #E89747;
+  color: #5B5B5B;
 }
 .bottle button.btn {
   position: absolute;
@@ -151,6 +168,98 @@ img.img-thumbnail {
 label {
   font-weight: normal;
 }
+.pagination ul li.active a {
+  background: #E89747;
+  border-color: #E89747;
+  color: white;
+}
+.pagination ul li.active a:link,
+.pagination ul li.active a:visited {
+  color: white;
+}
+.pagination ul li.active a:hover,
+.pagination ul li.active a:active,
+.pagination ul li.active a:focus {
+  color: white;
+  background: #f3caa2;
+  border-color: #f3caa2;
+}
+.pagination a {
+  color: #E89747;
+}
+.pagination a:link,
+.pagination a:visited {
+  color: #E89747;
+}
+.pagination a:hover,
+.pagination a:active,
+.pagination a:focus {
+  color: #5B5B5B;
+}
+footer {
+  text-align: right;
+}
+footer div {
+  padding-top: 10px;
+  border-top: solid 1px #E89747;
+}
+nav.admin-nav {
+  text-align: right;
+}
+nav.admin-nav ul {
+  margin-left: 0;
+  background: #E89747;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 5px;
+}
+nav.admin-nav ul li {
+  display: inline-block;
+  list-style-type: none;
+  background: white;
+  color: #b36416;
+  padding: 10px;
+  border-radius: 4px;
+  border: solid 1px #E89747;
+}
+nav.admin-nav ul li a:hover,
+nav.admin-nav ul li a:active,
+nav.admin-nav ul li a:focus {
+  text-decoration: none;
+}
+nav.admin-nav ul li:hover,
+nav.admin-nav ul li:active,
+nav.admin-nav ul li:visited,
+nav.admin-nav ul li.active:hover,
+nav.admin-nav ul li.active:hover,
+nav.admin-nav ul li.active:visited {
+  background: #f9e4cf;
+  color: #b36416;
+  border: solid 1px #E89747;
+}
+nav.admin-nav ul li:hover a:link,
+nav.admin-nav ul li:active a:link,
+nav.admin-nav ul li:visited a:link,
+nav.admin-nav ul li.active:hover a:link,
+nav.admin-nav ul li.active:hover a:link,
+nav.admin-nav ul li.active:visited a:link,
+nav.admin-nav ul li:hover a:visited,
+nav.admin-nav ul li:active a:visited,
+nav.admin-nav ul li:visited a:visited,
+nav.admin-nav ul li.active:hover a:visited,
+nav.admin-nav ul li.active:hover a:visited,
+nav.admin-nav ul li.active:visited a:visited {
+  color: #b36416;
+}
+nav.admin-nav ul li.active {
+  color: #5B5B5B;
+  border: solid 1px #5B5B5B;
+  background: #dbdbdb;
+}
+nav.admin-nav ul li.active a:link,
+nav.admin-nav ul li.active a:visited {
+  color: #5B5B5B;
+}
 .modal-header {
   background: #eeb174;
   border-radius: 4px 4px 0 0 ;
@@ -158,14 +267,6 @@ label {
 }
 .modal-header h2 {
   margin: 0;
-}
-.modal-body div {
-  float: right;
-  width: 75%;
-}
-.modal-body img {
-  width: 25%;
-  float: left;
 }
 .mobile-links {
   display: none;
@@ -225,7 +326,7 @@ table img {
   button.shoppings a:link,
   .mobile-links a:visited,
   button.shoppings a:visited {
-    color: #5b5b5b;
+    color: #5B5B5B;
   }
   h1 {
     margin-top: 40px;
