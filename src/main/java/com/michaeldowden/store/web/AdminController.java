@@ -10,20 +10,24 @@ import org.apache.shiro.SecurityUtils;
 
 import com.google.gson.Gson;
 import com.michaeldowden.store.model.Bourbon;
-import com.michaeldowden.store.service.ItemDao;
+import com.michaeldowden.store.service.ItemMapper;
 
 public class AdminController {
 
 	private final Gson gson = new Gson();
-	private final ItemDao itemDao = ItemDao.getInstance();
+	private final ItemMapper mapper;
+
+	public AdminController(ItemMapper mapper) {
+		this.mapper = mapper;
+	}
 
 	public void initialize() {
 		get("/svc/admin/items", "application/json", (req, res) -> {
-			return itemDao.listItems();
+			return mapper.listItems();
 		}, gson::toJson);
 
 		get("/svc/admin/item/:shortname", "application/json", (req, res) -> {
-			Bourbon item = itemDao.findBourbonByShortname(req.params(":shortname"));
+			Bourbon item = mapper.findBourbonByShortname(req.params(":shortname"));
 			if (item == null) {
 				halt(404);
 			}
@@ -36,7 +40,12 @@ public class AdminController {
 			bourbon.setLastUpdated( LocalDateTime.now() );
 			bourbon.setWhoUpdated( (String)SecurityUtils.getSubject().getPrincipal() );
 			
-			itemDao.storeBourbon(bourbon);
+			if (bourbon.getId() == null) {
+				mapper.insertBourbon(bourbon);
+			} else {
+				mapper.updateBourbon(bourbon);
+			}
+
 			return Boolean.TRUE;
 		});
 	}
