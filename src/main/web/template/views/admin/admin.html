@@ -24,17 +24,19 @@
       <th>Name</th>
       <th>Short Name</th>
       <th>Price</th>
-      <th>Description</th>
+      <th>Last Updated</th>
+      <th>Updated By</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="bottle in bottleList">
       <td class="text-center"><button type="button" ng-click="open('md', bottle)" class="btn btn-sm"><i class="fa fa-edit"></i></button></td>
-      <td>{{bottle.id}}</td>
+      <td class="text-right">{{bottle.id}}</td>
       <td>{{bottle.name}}</td>
       <td>{{bottle.shortname}}</td>
-      <td>{{bottle.price}}</td>
-      <td>{{bottle.description}}</td>
+      <td class="text-right">$ {{bottle.price}}</td>
+      <td class="text-right">{{bottle.lastUpdated.date.month}}/{{bottle.lastUpdated.date.day}}/{{bottle.lastUpdated.date.year}} {{bottle.lastUpdated.time.hour}}:{{bottle.lastUpdated.time.minute}}:{{bottle.lastUpdated.time.second}}</td>
+      <td>{{bottle.whoUpdated}}</td>
     </tr>
   </tbody>
 </table>

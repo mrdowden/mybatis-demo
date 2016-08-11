@@ -8,12 +8,16 @@ import static spark.Spark.put;
 import com.google.gson.Gson;
 import com.michaeldowden.store.model.OrderItem;
 import com.michaeldowden.store.service.CartService;
-import com.michaeldowden.store.service.ItemDao;
+import com.michaeldowden.store.service.ItemMapper;
 
 public class CartController {
 	private final Gson gson = new Gson();
-	private final ItemDao itemDao = ItemDao.getInstance();
+	private final ItemMapper mapper;
 	private final CartService cartSvc = new CartService();
+
+	public CartController(ItemMapper mapper) {
+		this.mapper = mapper;
+	}
 
 	public void initialize() {
 		get("/svc/cart", "application/json", (req, res) -> {
@@ -22,7 +26,7 @@ public class CartController {
 
 		put("/svc/cart/:itemId", (req, res) -> {
 			Integer itemId = Integer.valueOf(req.params(":itemId"));
-			final OrderItem item = new OrderItem(itemDao.findBourbon(itemId));
+			final OrderItem item = new OrderItem(mapper.findBourbon(itemId));
 
 			cartSvc.addToCart(req, item);
 			return item;
